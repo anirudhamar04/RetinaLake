@@ -1,0 +1,3 @@
+[submodule "external/automorph"]
+	path = external/automorph
+	url = https://github.com/rmaphoh/AutoMorph.git

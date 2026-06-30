@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 470" font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0d1117"/><stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="funnel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3a2a63"/><stop offset="1" stop-color="#241a3d"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="12" markerHeight="12" refX="7" refY="5" orient="auto">
+      <path d="M1,1 L9,5 L1,9" fill="none" stroke="#8b949e" stroke-width="2.4"/>
+    </marker>
+
+    <g id="img">
+      <rect x="0" y="0" width="58" height="46" rx="5" fill="#16263b" stroke="#1f6feb" stroke-width="1.6"/>
+      <circle cx="16" cy="14" r="6" fill="#58a6ff"/>
+      <path d="M4 42 L22 22 L34 34 L44 24 L54 42 Z" fill="#1f6feb"/>
+    </g>
+    <g id="doc">
+      <path d="M0 0 H32 L46 14 V58 H0 Z" fill="#102018" stroke="#2ea043" stroke-width="1.6"/>
+      <path d="M32 0 V14 H46" fill="none" stroke="#2ea043" stroke-width="1.6"/>
+      <line x1="9" y1="26" x2="37" y2="26" stroke="#3fb950" stroke-width="2.2"/>
+      <line x1="9" y1="35" x2="37" y2="35" stroke="#3fb950" stroke-width="2.2"/>
+      <line x1="9" y1="44" x2="28" y2="44" stroke="#3fb950" stroke-width="2.2"/>
+    </g>
+    <g id="mask">
+      <rect x="0" y="0" width="50" height="50" rx="5" fill="#1c1530" stroke="#8957e5" stroke-width="1.6"/>
+      <path d="M25 9 C40 12 42 30 30 40 C18 48 8 34 14 22 C17 15 20 11 25 9 Z" fill="#bc8cff"/>
+    </g>
+  </defs>
+
+  <rect width="1280" height="470" fill="url(#bg)"/>
+  <text x="40" y="50" fill="#f0f6fc" font-size="25" font-weight="700">RetinaLake &#8212; Many Retinal Datasets, One Unified Data Lake</text>
+  <text x="40" y="78" fill="#8b949e" font-size="15">Multiple sources &#8594; ingestion framework &#8594; unified PostgreSQL schema &#8594; ML-ready export</text>
+
+  <!-- flow arrows -->
+  <line x1="296" y1="235" x2="386" y2="235" stroke="#8b949e" stroke-width="2.6" marker-end="url(#arr)"/>
+  <line x1="520" y1="235" x2="660" y2="235" stroke="#8b949e" stroke-width="2.6" marker-end="url(#arr)"/>
+  <line x1="858" y1="235" x2="952" y2="235" stroke="#8b949e" stroke-width="2.6" marker-end="url(#arr)"/>
+
+  <!-- (1) MULTIPLE SOURCES -->
+  <rect x="40" y="130" width="250" height="210" rx="12" fill="#0f141b" stroke="#30363d" stroke-dasharray="6 5"/>
+  <use href="#img"  x="66"  y="158"/>
+  <use href="#doc"  x="188" y="152"/>
+  <use href="#mask" x="70"  y="238"/>
+  <use href="#img"  x="180" y="240"/>
+  <text x="165" y="116" fill="#58a6ff" font-size="14" font-weight="700" text-anchor="middle">Public &amp; Private Sources</text>
+  <text x="165" y="322" fill="#c9d1d9" font-size="15" font-weight="600" text-anchor="middle">Multiple Datasets</text>
+
+  <!-- (2) INGESTION FUNNEL: single sideways trapezoid -->
+  <g>
+    <polygon points="400,168 512,205 512,265 400,302" fill="url(#funnel)" stroke="#8957e5" stroke-width="2"/>
+    <text x="456" y="330" fill="#c9d1d9" font-size="15" font-weight="600" text-anchor="middle">Ingestion Framework</text>
+    <text x="456" y="352" fill="#8b949e" font-size="13" text-anchor="middle">UUIDs &#183; Provenance &#183; Dedup</text>
+  </g>
+
+  <!-- (3) UNIFIED SCHEMA: database cylinder (clean) -->
+  <g>
+    <path d="M668 175 V300 a92 26 0 0 0 184 0 V175" fill="#16271c" stroke="#2ea043" stroke-width="2"/>
+    <ellipse cx="760" cy="175" rx="92" ry="26" fill="#1c3325" stroke="#3fb950" stroke-width="2"/>
+    <text x="760" y="244" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">Unified Schema</text>
+    <text x="760" y="352" fill="#c9d1d9" font-size="15" font-weight="600" text-anchor="middle">PostgreSQL Data Lake</text>
+  </g>
+
+  <!-- (4) EXPORT -->
+  <g text-anchor="middle" font-size="14" fill="#f0d3b5">
+    <rect x="960" y="160" width="240" height="42" rx="9" fill="#2a1c10" stroke="#db6d28" stroke-width="1.6"/>
+    <text x="1080" y="186">Parquet / PyTorch</text>
+    <rect x="960" y="214" width="240" height="42" rx="9" fill="#2a1c10" stroke="#db6d28" stroke-width="1.6"/>
+    <text x="1080" y="240">COCO / Captions</text>
+    <rect x="960" y="268" width="240" height="42" rx="9" fill="#2a1c10" stroke="#db6d28" stroke-width="1.6"/>
+    <text x="1080" y="294">Unified Concept Columns</text>
+  </g>
+  <text x="1080" y="330" fill="#c9d1d9" font-size="15" font-weight="600" text-anchor="middle">ML-Ready Export</text>
+
+  <!-- concept harmonisation footer -->
+  <text x="40" y="400" fill="#8b949e" font-size="14" font-weight="700">Concept Harmonisation &#8212; However Each Dataset Stored a Label, It Becomes One Queryable Column</text>
+  <g font-size="14" text-anchor="middle">
+    <rect x="40" y="414" width="300" height="38" rx="8" fill="#161b22" stroke="#30363d"/>
+    <text x="190" y="438" fill="#c9d1d9">Grade 0&#8211;4 / "RG" / Panel Bit</text>
+    <line x1="346" y1="433" x2="392" y2="433" stroke="#8b949e" stroke-width="2.2" marker-end="url(#arr)"/>
+    <rect x="400" y="414" width="290" height="38" rx="8" fill="#10231a" stroke="#238636"/>
+    <text x="545" y="438" fill="#3fb950" font-weight="700">Glaucoma_present &#8712; {0, 1}</text>
+    <line x1="696" y1="433" x2="742" y2="433" stroke="#8b949e" stroke-width="2.2" marker-end="url(#arr)"/>
+    <rect x="750" y="414" width="450" height="38" rx="8" fill="#10231a" stroke="#238636"/>
+    <text x="975" y="438" fill="#3fb950" font-weight="700">Health Status &#8712; {Normal, Abnormal}</text>
+  </g>
+</svg>

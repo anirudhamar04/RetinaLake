@@ -1,0 +1,31 @@
+# RetinaLake — PostgreSQL data lake.
+#
+#   docker compose up -d
+#
+# starts PostgreSQL and applies schema/schema.sql (tables + grade-conversion
+# triggers) automatically on first launch. The credentials below MUST match the
+# DB_* values in your .env (copied from .env.example).
+services:
+  db:
+    image: postgres:16
+    container_name: retinalake_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: chaksudb
+      POSTGRES_USER: chaksuai
+      POSTGRES_PASSWORD: chaksuai
+    ports:
+      - "5432:5432"
+    volumes:
+      # Persist the data lake across restarts.
+      - retinalake_pgdata:/var/lib/postgresql/data
+      # Applied once, on first initialisation of an empty data directory.
+      - ./schema/schema.sql:/docker-entrypoint-initdb.d/01_schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U chaksuai -d chaksudb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  retinalake_pgdata:
