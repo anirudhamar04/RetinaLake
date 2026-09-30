@@ -1,0 +1,19 @@
+RetinaLake
+Copyright (c) 2026 RetinaLake and its contributors
+
+This product's code is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The Apache License 2.0 applies to RetinaLake's own code (schema, ingestion framework, and
+export toolkit). It does NOT apply to:
+
+1. The datasets. RetinaLake does not redistribute any dataset. Each of the 50+
+   supported datasets is obtained by the user from its original source and is
+   governed by that dataset's own license and terms of use.
+
+2. Vendored third-party code:
+
+   - AutoMorph (https://github.com/rmaphoh/AutoMorph)
+     Included as a git submodule under external/automorph/, used for image-quality
+     assessment (IQA) and fundus ROI detection. AutoMorph is distributed under its
+     own license; see external/automorph/LICENSE. If you use these features, please
+     cite AutoMorph.
